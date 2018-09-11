@@ -2,6 +2,7 @@
   "scripts": {
     "api": "node ratingsAPI.js",
     "build": "webpack",
+    "dev": "webpack-dev-server",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint \"**/*.{js,jsx}\" --quiet",
     "watch": "webpack --watch"
@@ -11,10 +12,13 @@
     "babel-plugin-dynamic-import-webpack": "1.0.1",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
     "babel-register": "6.24.1",
-    "compression": "1.6.2",
+    "compression": "^1.7.3",
     "cors": "2.8.3",
-    "express": "4.15.3",
-    "lodash": "4.17.4",
+    "debug": "2.6.9",
+    "express": "^4.16.3",
+    "fresh": "0.5.2",
+    "lodash": "^4.17.10",
+    "mime": "1.4.1",
     "preact": "8.1.0",
     "preact-compat": "3.16.0",
     "prop-types": "15.5.10",
@@ -60,13 +64,11 @@
     "prettier": "1.3.1",
     "react-hot-loader": "3.0.0-beta.6",
     "react-test-renderer": "15.5.4",
-    "webpack-dev-server": "2.4.5"
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^2.9.1"
   },
   "name": "complete-intro-to-react",
-  "version": "3.0.0",
-  "description": "A Complete Intro to React workshop",
+  "version": "1.0.0",
   "main": "server.js",
-  "repository": "git@github.com:btholt/complete-intro-to-react.git",
-  "author": "Brian Holt <btholt@gmail.com>",
   "license": "MIT"
 }
