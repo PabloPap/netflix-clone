@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import ShowCard from './ShowCard';
-import preload from '../data.json';
+// @flow
 
-class Search extends Component {
+import * as React from 'react';
+import ShowCard from './ShowCard';
+
+class Search extends React.Component<void, State> {
   // constructor(props) {
   //   super(props);
 
@@ -12,14 +13,16 @@ class Search extends Component {
 
   //   // this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   // }
-
   state = {
     searchTerm: ''
   };
-  // use arrow function to avoid write line 13
-  handleSearchTermChange = event => {
-    this.setState({ searchTerm: event.target.value });
+  props: {
+    shows: Array<Show>
   };
+  handleSearchTermChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    this.setState({ searchTerm: event.currentTarget.value });
+  };
+
   render() {
     return (
       <div className="search">
@@ -34,7 +37,7 @@ class Search extends Component {
           />
         </header>
         <div>
-          {preload.shows
+          {this.props.shows
             .filter(
               show =>
                 `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0

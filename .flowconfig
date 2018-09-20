@@ -3,5 +3,5 @@
 [include]
 
 [libs]
-
+styled-components
 [options]
