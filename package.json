@@ -5,8 +5,8 @@
     "dev": "webpack-dev-server",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint \"**/*.{js,jsx}\" --quiet",
-    "test": "jest --coverage",
-    "test:coverage": "jest",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:update": "jest -u",
     "watch": "webpack --watch"
   },
@@ -67,7 +67,6 @@
     "flow-bin": "^0.81.0",
     "flow-typed": "^2.5.1",
     "jest": "20.0.4",
-    "jest-cli": "^23.6.0",
     "jest-serializer-enzyme": "1.0.0",
     "moxios": "0.4.0",
     "nodemon": "1.11.0",
