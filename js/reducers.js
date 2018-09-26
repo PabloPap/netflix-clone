@@ -1,7 +1,7 @@
 // @flow
 
 import { combineReducers } from 'redux';
-import { SET_SEARCH_TERM } from './actions';
+import { SET_SEARCH_TERM, ADD_API_DATA } from './actions';
 
 // const DEFAULT_STATE = {
 //   searchTerm: ''
@@ -22,6 +22,19 @@ const searchTerm = (state = '', action: Action) => {
   return state;
 };
 
+const apiData = (state = {}, action: Action) => {
+  if (action.type === ADD_API_DATA) {
+    return Object.assign({}, state, {
+      [action.payload.imdbID]: action.payload
+    });
+    // ***** other way *****
+    // const key = action.payload.imdbID
+    // const obj = {}
+    // obj[key] = action.payload
+  }
+  return state;
+};
+
 // const rootReducer = (state = DEFAULT_STATE, action) => {
 //   switch (action.type) {
 //     case SET_SEARCH_TERM:
@@ -32,6 +45,6 @@ const searchTerm = (state = '', action: Action) => {
 // };
 
 // same as {searchTem: searchTerm}
-const rootReducer = combineReducers({ searchTerm });
+const rootReducer = combineReducers({ searchTerm, apiData });
 
 export default rootReducer;

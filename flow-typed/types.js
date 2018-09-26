@@ -1,4 +1,4 @@
-import { SET_SEARCH_TERM } from '../js/actions';
+import { SET_SEARCH_TERM, ADD_API_DATA } from '../js/actions';
 import { strict } from 'assert';
 
 // @flow
@@ -9,7 +9,8 @@ export type Show = {
   year: string,
   imdbID: string,
   trailer: string,
-  poster: string
+  poster: string,
+  rating?: string
 };
 
 declare var module: {
@@ -18,11 +19,11 @@ declare var module: {
   }
 };
 
-declare type ActionType = 'SET_SEARCH_TERM';
+declare type ActionType = 'SET_SEARCH_TERM' | 'ADD_API_DATA';
 
 declare type ActionT<A: ActionType, P> = {|
   type: A,
   payload: P
 |};
 
-export type Action = ActionT<'SET_SEARCH_TERM', string>;
+export type Action = ActionT<'SET_SEARCH_TERM', string> | ActionT<'ADD_API_DATA', Show>;
