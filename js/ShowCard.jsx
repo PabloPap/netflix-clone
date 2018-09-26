@@ -1,9 +1,9 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import { string } from 'prop-types';
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled(Link)`
   width:32%;
@@ -27,11 +27,8 @@ class ShowCard extends Component {
   props: Show;
   render() {
     return (
-      <Wrapper to={`/details/${this.props.imdbID}`}>
-        <Image
-          src={`/public/img/posters/${this.props.poster}`}
-          alt={`${this.props.title} Show Poster`}
-        />
+      <Wrapper className="show-card" to={`/details/${this.props.imdbID}`}>
+        <Image src={`/public/img/posters/${this.props.poster}`} alt={`${this.props.title} Show Poster`} />
         <div>
           <h3>{this.props.title}</h3>
           <h4>({this.props.year})</h4>
