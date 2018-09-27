@@ -4,9 +4,14 @@ const webpack = require('webpack');
 module.exports = {
   context: __dirname,
   entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
+    // orient webpack to read from the server swe wrote
+    'webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000',
+
+    // read from dev-server
+
+    // 'react-hot-loader/patch',
+    // 'webpack-dev-server/client?http://localhost:8080',
+    // 'webpack/hot/only-dev-server',
     './js/ClientApp.jsx'
   ],
   devtool: 'cheap-eval-source-map',

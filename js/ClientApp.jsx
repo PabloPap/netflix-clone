@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 // import Perf from "react-addons-perf";
 import App from './App';
 
@@ -11,7 +12,7 @@ import App from './App';
 const renderApp = () => {
   const app = document.getElementById('app');
   if (app !== null) {
-    render(<App />, app);
+    render(<BrowserRouter><App /></BrowserRouter>, app);
   }
 };
 
