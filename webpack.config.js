@@ -1,17 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = {
+const config = {
   context: __dirname,
   entry: [
     // orient webpack to read from the server swe wrote
-    'webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000',
+    // 'webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000',
 
     // read from dev-server
-
-    // 'react-hot-loader/patch',
-    // 'webpack-dev-server/client?http://localhost:8080',
-    // 'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
     './js/ClientApp.jsx'
   ],
   devtool: 'cheap-eval-source-map',
@@ -49,3 +48,11 @@ module.exports = {
     ]
   }
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.entry = './js/ClientApp.jsx';
+  config.devtool = false;
+  config.plugins = [];
+}
+
+module.exports = config;

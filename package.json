@@ -1,10 +1,12 @@
 {
   "scripts": {
     "api": "node ratingsAPI.js",
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack -p",
+    "build:dev": "NODE_ENV=development webpack -d",
     "dev": "webpack-dev-server",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\"",
     "lint": "eslint \"**/*.{js,jsx}\" --quiet",
+    "start": "NODE_ENV=server node server.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:update": "jest -u",

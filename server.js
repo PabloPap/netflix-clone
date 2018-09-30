@@ -11,12 +11,13 @@ const ReactDOMServer = require('react-dom/server');
 const ReactRouter = require('react-router-dom');
 const _ = require('lodash');
 // webpack middleware instead of the dev server
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpack = require('webpack');
+// const webpackDevMiddleware = require('webpack-dev-middleware');
+// const webpackHotMiddleware = require('webpack-hot-middleware');
+// const webpack = require('webpack');
 const fs = require('fs');
+const compression = require('compression');
 const App = require('./js/App').default;
-const config = require('./webpack.config');
+// const config = require('./webpack.config');
 
 const StaticRouter = ReactRouter.StaticRouter;
 const port = 8080;
@@ -26,16 +27,19 @@ const template = _.template(baseTemplate);
 const server = express();
 
 // set server for hmr
-const compiler = webpack(config);
-server.use(
-  webpackDevMiddleware(compiler, {
-    publicPath: config.output.publicPath
-  })
-);
+// const compiler = webpack(config);
+// server.use(
+//   webpackDevMiddleware(compiler, {
+//     publicPath: config.output.publicPath
+//   })
+// );
 
-server.use(webpackHotMiddleware(compiler));
+// server.use(webpackHotMiddleware(compiler));
 // ******************************************
 
+// don't use gzipping in node level, only in apache etc level
+// here we do it to see the value
+server.use(compression());
 server.use('/public', express.static('./public'));
 
 server.use((req, res) => {
